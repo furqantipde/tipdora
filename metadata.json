@@ -1,0 +1,7 @@
+{
+  "name": "TipDora",
+  "description": "Simple Tools. Smart Ideas. Beautifully Delivered. A collection of free online generators, tools, and tips.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
