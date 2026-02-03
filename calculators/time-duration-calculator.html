@@ -4,77 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Duration Calculator - Calculate Time Between Two Dates | Tipdora.fun</title>
-    <meta name="description"
-        content="Calculate the exact duration between two times or dates. Find out how many days, hours, and minutes are remaining for an event.">
+    <title>Time Duration Calculator - Exact Time Between Dates | Tipdora.fun</title>
+    <meta name="description" content="Calculate days, hours, and minutes between two dates. Exact duration calculator.">
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-white transition-colors duration-300">
 
     <div id="app" class="flex flex-col min-h-screen">
-        <main class="flex-grow container mx-auto px-4 py-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="md:col-span-2">
-                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
-                        <h1 class="text-3xl font-bold mb-6 text-brand-600">Time Duration Calculator</h1>
+        <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
 
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                            <div>
-                                <h3 class="font-semibold mb-2">Start Time</h3>
-                                <input type="date" id="start-date"
-                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                                <input type="time" id="start-time"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+            <nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+                <a href="/" class="hover:text-brand-600 transition">Home</a>
+                <span class="mx-2">/</span>
+                <a href="/calculators/index.html" class="hover:text-brand-600 transition">Calculators</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-900 dark:text-white font-medium">Time Duration</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-2">
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="p-3 rounded-xl bg-orange-100 dark:bg-orange-900/30 text-orange-600 dark:text-orange-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
                             </div>
-                            <div>
-                                <h3 class="font-semibold mb-2">End Time</h3>
-                                <input type="date" id="end-date"
-                                    class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
-                                <input type="time" id="end-time"
-                                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5">
+                            <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Time Duration</h1>
+                        </div>
+
+                        <div class="grid gap-6 mb-8">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label
+                                        class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Start
+                                        Date & Time</label>
+                                    <input type="datetime-local" id="start" class="input-field">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">End
+                                        Date & Time</label>
+                                    <input type="datetime-local" id="end" class="input-field">
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex gap-4 mb-6">
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
                             <button id="btn-calculate"
-                                class="text-white bg-brand-600 hover:bg-brand-700 focus:ring-4 focus:outline-none focus:ring-brand-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                class="btn-primary w-full sm:w-auto px-8 py-3 rounded-xl font-semibold text-base">
                                 Calculate Duration
                             </button>
                             <button id="btn-reset"
-                                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                class="px-6 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition w-full sm:w-auto">
                                 Reset
                             </button>
                         </div>
 
-                        <div class="p-6 bg-brand-50 rounded-lg border border-brand-100 text-center">
-                            <span class="text-lg font-semibold text-brand-700 block mb-2">Total Duration</span>
-                            <span id="result-time" class="text-3xl font-bold text-brand-900">-</span>
+                        <div id="result-container"
+                            class="hidden p-6 rounded-2xl bg-brand-50 dark:bg-brand-900/10 border border-brand-100 dark:border-brand-900/20 text-center transition-all">
+                            <!-- Injected by JS -->
                         </div>
                     </div>
                 </div>
 
-                <div class="md:col-span-1">
+                <aside class="space-y-6">
                     <div
-                        class="bg-white p-4 rounded-lg shadow-md border border-gray-200 h-full flex items-center justify-center min-h-[300px]">
-                        <p class="text-gray-400">Ad Space</p>
+                        class="card p-4 h-64 flex items-center justify-center bg-slate-50 dark:bg-slate-800 border-dashed border-2 border-slate-200 dark:border-slate-700">
+                        <span class="text-slate-400 font-medium">Ad Space</span>
                     </div>
-                </div>
-            </div>
+                </aside>
 
-            <article class="mt-12 bg-white p-8 rounded-lg shadow-md border border-gray-200">
-                <h2 class="text-2xl font-bold mb-4">About Time Calculation</h2>
-                <div class="prose max-w-none text-gray-600">
-                    <p class="mb-4">
-                        This tool calculates the exact number of days, hours, and minutes between two points in time.
-                    </p>
-                    <h3 class="text-xl font-bold mb-2">Uses</h3>
-                    <ul class="list-disc pl-5 mb-4">
-                        <li>Calculate work hours (Clock in / Clock out).</li>
-                        <li>Find out how long ago an event happened.</li>
-                        <li>Countdown to a future date.</li>
-                    </ul>
-                </div>
-            </article>
+            </div>
 
         </main>
     </div>

@@ -1,76 +1,95 @@
 
+import { renderResult } from '../../components/CalculatorResult.js';
+
 document.addEventListener('DOMContentLoaded', () => {
     const courseList = document.getElementById('course-list');
-    const btnAddCourse = document.getElementById('btn-add-course');
-    const resultGpa = document.getElementById('result-gpa');
-    const btnCalculate = document.getElementById('btn-calculate');
-    const btnReset = document.getElementById('btn-reset');
+    const resultContainer = document.getElementById('result-container');
+    const addBtn = document.getElementById('btn-add-course');
+    const calcBtn = document.getElementById('btn-calculate');
+    const resetBtn = document.getElementById('btn-reset');
 
-    // Grade points mapping
-    const gradePoints = {
-        'A+': 4.0, 'A': 4.0, 'A-': 3.7,
-        'B+': 3.3, 'B': 3.0, 'B-': 2.7,
-        'C+': 2.3, 'C': 2.0, 'C-': 1.7,
-        'D+': 1.3, 'D': 1.0, 'F': 0.0
-    };
-
-    function addCourseRow() {
+    function addRow() {
         const row = document.createElement('div');
-        row.className = 'grid grid-cols-3 gap-2 mb-2 course-row';
+        row.className = 'grid grid-cols-12 gap-4 items-center animate-fade-in';
         row.innerHTML = `
-            <input type="text" class="course-name bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded p-2" placeholder="Subject">
-            <input type="number" class="course-credits bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded p-2" placeholder="Credits" min="1">
-            <select class="course-grade bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded p-2">
-                <option value="A">A / 4.0</option>
-                <option value="A-">A- / 3.7</option>
-                <option value="B+">B+ / 3.3</option>
-                <option value="B">B / 3.0</option>
-                <option value="B-">B- / 2.7</option>
-                <option value="C+">C+ / 2.3</option>
-                <option value="C">C / 2.0</option>
-                <option value="C-">C- / 1.7</option>
-                <option value="D+">D+ / 1.3</option>
-                <option value="D">D / 1.0</option>
-                <option value="F">F / 0</option>
-            </select>
+            <div class="col-span-5">
+                <input type="text" class="input-field py-2" placeholder="e.g. Math">
+            </div>
+            <div class="col-span-3">
+                <input type="number" class="input-field py-2 text-center course-credits" placeholder="3" value="3">
+            </div>
+            <div class="col-span-3">
+                <select class="input-field py-2 course-grade">
+                    <option value="4.0">A (4.0)</option>
+                    <option value="3.7">A- (3.7)</option>
+                    <option value="3.3">B+ (3.3)</option>
+                    <option value="3.0">B (3.0)</option>
+                    <option value="2.7">B- (2.7)</option>
+                    <option value="2.3">C+ (2.3)</option>
+                    <option value="2.0">C (2.0)</option>
+                    <option value="1.7">C- (1.7)</option>
+                    <option value="1.0">D (1.0)</option>
+                    <option value="0.0">F (0.0)</option>
+                </select>
+            </div>
+            <div class="col-span-1 text-center">
+                <button class="text-slate-400 hover:text-red-500 transition btn-remove">
+                    ✖
+                </button>
+            </div>
         `;
+
+        row.querySelector('.btn-remove').addEventListener('click', () => {
+            if (courseList.children.length > 1) row.remove();
+        });
+
         courseList.appendChild(row);
     }
 
-    function calculateGPA() {
+    // Init with 3 rows
+    addRow();
+    addRow();
+    addRow();
+
+    addBtn?.addEventListener('click', addRow);
+
+    calcBtn?.addEventListener('click', () => {
         let totalPoints = 0;
         let totalCredits = 0;
 
-        const rows = document.querySelectorAll('.course-row');
+        const credits = document.querySelectorAll('.course-credits');
+        const grades = document.querySelectorAll('.course-grade');
 
-        rows.forEach(row => {
-            const credits = parseFloat(row.querySelector('.course-credits').value);
-            const grade = row.querySelector('.course-grade').value;
+        credits.forEach((creditInput, index) => {
+            const cr = parseFloat(creditInput.value);
+            const gr = parseFloat(grades[index].value);
 
-            if (!isNaN(credits) && credits > 0) {
-                const points = gradePoints[grade];
-                totalPoints += (points * credits);
-                totalCredits += credits;
+            if (!isNaN(cr) && !isNaN(gr)) {
+                totalPoints += (cr * gr);
+                totalCredits += cr;
             }
         });
 
-        if (totalCredits === 0) {
-            resultGpa.textContent = "0.00";
-            return;
-        }
+        if (totalCredits === 0) return;
 
         const gpa = totalPoints / totalCredits;
-        resultGpa.textContent = gpa.toFixed(2);
-    }
 
-    // Add 4 initial rows
-    for (let i = 0; i < 4; i++) addCourseRow();
+        renderResult(resultContainer, {
+            mainLabel: 'Your GPA',
+            mainValue: gpa.toFixed(2),
+            subLabel: 'Semester Grade Point Average',
+            details: [
+                { label: 'Total Credits', value: totalCredits },
+                { label: 'Total Grade Points', value: totalPoints.toFixed(1) }
+            ]
+        });
+    });
 
-    btnAddCourse.addEventListener('click', addCourseRow);
-    btnCalculate.addEventListener('click', calculateGPA);
-    btnReset.addEventListener('click', () => {
+    resetBtn?.addEventListener('click', () => {
+        resultContainer.classList.add('hidden');
         courseList.innerHTML = '';
-        for (let i = 0; i < 4; i++) addCourseRow();
-        resultGpa.textContent = '-';
+        addRow();
+        addRow();
+        addRow();
     });
 });

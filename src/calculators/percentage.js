@@ -1,55 +1,49 @@
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Section 1: X% of Y
-    const p1NumX = document.getElementById('p1-num-x');
-    const p1NumY = document.getElementById('p1-num-y');
-    const p1Result = document.getElementById('p1-result');
-    const p1Btn = document.getElementById('p1-btn');
 
-    // Section 2: X is what % of Y
-    const p2NumX = document.getElementById('p2-num-x');
-    const p2NumY = document.getElementById('p2-num-y');
-    const p2Result = document.getElementById('p2-result');
-    const p2Btn = document.getElementById('p2-btn');
+    // Tool 1: X% of Y
+    document.getElementById('p1-btn')?.addEventListener('click', () => {
+        const x = parseFloat(document.getElementById('p1-x').value);
+        const y = parseFloat(document.getElementById('p1-y').value);
+        const resultBox = document.getElementById('p1-result');
 
-    // Section 3: Percentage Increase/Decrease
-    const p3From = document.getElementById('p3-from');
-    const p3To = document.getElementById('p3-to');
-    const p3Result = document.getElementById('p3-result');
-    const p3Btn = document.getElementById('p3-btn');
-
-    // 1. Calculate X% of Y
-    p1Btn.addEventListener('click', () => {
-        const x = parseFloat(p1NumX.value);
-        const y = parseFloat(p1NumY.value);
         if (isNaN(x) || isNaN(y)) return;
 
-        const result = (x / 100) * y;
-        p1Result.textContent = result.toFixed(2);
+        const ans = (x / 100) * y;
+        resultBox.textContent = `Result: ${ans}`;
+        resultBox.classList.remove('hidden');
     });
 
-    // 2. X is what % of Y
-    p2Btn.addEventListener('click', () => {
-        const x = parseFloat(p2NumX.value);
-        const y = parseFloat(p2NumY.value);
+    // Tool 2: X is what % of Y
+    document.getElementById('p2-btn')?.addEventListener('click', () => {
+        const x = parseFloat(document.getElementById('p2-x').value);
+        const y = parseFloat(document.getElementById('p2-y').value);
+        const resultBox = document.getElementById('p2-result');
+
         if (isNaN(x) || isNaN(y) || y === 0) return;
 
-        const result = (x / y) * 100;
-        p2Result.textContent = result.toFixed(2) + '%';
+        const ans = (x / y) * 100;
+        resultBox.textContent = `Result: ${ans.toFixed(2)}%`;
+        resultBox.classList.remove('hidden');
     });
 
-    // 3. Percentage Change
-    p3Btn.addEventListener('click', () => {
-        const from = parseFloat(p3From.value);
-        const to = parseFloat(p3To.value);
-        if (isNaN(from) || isNaN(to) || from === 0) return;
+    // Tool 3: Decrease/Increase
+    document.getElementById('p3-btn')?.addEventListener('click', () => {
+        const start = parseFloat(document.getElementById('p3-x').value);
+        const end = parseFloat(document.getElementById('p3-y').value);
+        const resultBox = document.getElementById('p3-result');
 
-        const diff = to - from;
-        const result = (diff / from) * 100;
-        const sign = result > 0 ? '+' : '';
+        if (isNaN(start) || isNaN(end) || start === 0) return;
 
-        p3Result.textContent = sign + result.toFixed(2) + '%';
-        p3Result.className = result >= 0 ? 'text-xl font-bold text-green-600' : 'text-xl font-bold text-red-600';
+        const diff = end - start;
+        const percent = (diff / start) * 100;
+
+        if (percent > 0) {
+            resultBox.innerHTML = `Increase of <span class="text-green-500">+${percent.toFixed(2)}%</span>`;
+        } else {
+            resultBox.innerHTML = `Decrease of <span class="text-red-500">${percent.toFixed(2)}%</span>`;
+        }
+        resultBox.classList.remove('hidden');
     });
 
 });

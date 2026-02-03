@@ -1,58 +1,38 @@
 
+import { renderResult } from '../../components/CalculatorResult.js';
+
 document.addEventListener('DOMContentLoaded', () => {
-    const startDateInput = document.getElementById('start-date');
-    const startTimeInput = document.getElementById('start-time');
-    const endDateInput = document.getElementById('end-date');
-    const endTimeInput = document.getElementById('end-time');
+    const startInput = document.getElementById('start');
+    const endInput = document.getElementById('end');
+    const resultContainer = document.getElementById('result-container');
 
-    const resultTime = document.getElementById('result-time');
-
-    const btnCalculate = document.getElementById('btn-calculate');
-    const btnReset = document.getElementById('btn-reset');
-
-    // Set default values to current date/time
-    const now = new Date();
-    startDateInput.valueAsDate = now;
-    endDateInput.valueAsDate = now;
-    startTimeInput.value = "09:00";
-    endTimeInput.value = "17:00";
-
-    function calculateDuration() {
-        const startStr = `${startDateInput.value}T${startTimeInput.value}`;
-        const endStr = `${endDateInput.value}T${endTimeInput.value}`;
-
-        const start = new Date(startStr);
-        const end = new Date(endStr);
+    document.getElementById('btn-calculate')?.addEventListener('click', () => {
+        const start = new Date(startInput.value);
+        const end = new Date(endInput.value);
 
         if (isNaN(start) || isNaN(end)) return;
 
-        let diff = end - start;
-        let suffix = "";
+        const diffMs = Math.abs(end - start);
 
-        if (diff < 0) {
-            diff = Math.abs(diff);
-            suffix = " (End date is before start date)";
-        }
+        const days = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diffMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diffMs % (1000 * 60 * 60)) / (1000 * 60));
 
-        const totalSeconds = Math.floor(diff / 1000);
-        const days = Math.floor(totalSeconds / (3600 * 24));
-        const hours = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-        const minutes = Math.floor((totalSeconds % 3600) / 60);
+        renderResult(resultContainer, {
+            mainLabel: 'Total Duration',
+            mainValue: `${days} Days`,
+            subLabel: `${hours} hours and ${minutes} minutes`,
+            details: [
+                { label: 'From', value: start.toLocaleString() },
+                { label: 'To', value: end.toLocaleString() },
+                { label: 'Total Hours', value: (diffMs / (1000 * 60 * 60)).toFixed(1) + ' hrs' }
+            ]
+        });
+    });
 
-        // Detailed breakdown string
-        let resultText = "";
-        if (days > 0) resultText += `${days} days, `;
-        if (hours > 0 || days > 0) resultText += `${hours} hours, `;
-        resultText += `${minutes} minutes`;
-
-        if (resultText === "") resultText = "0 minutes";
-
-        resultTime.textContent = resultText + suffix;
-    }
-
-    btnCalculate.addEventListener('click', calculateDuration);
-
-    btnReset.addEventListener('click', () => {
-        resultTime.textContent = '-';
+    document.getElementById('btn-reset')?.addEventListener('click', () => {
+        resultContainer.classList.add('hidden');
+        startInput.value = '';
+        endInput.value = '';
     });
 });
