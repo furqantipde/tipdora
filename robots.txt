@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tipdora.fun/sitemap.xml

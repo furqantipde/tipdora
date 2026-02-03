@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electricity Bill Calculator - Estimate Power Costs | Tipdora.fun</title>
+    <meta name="description"
+        content="Estimate your monthly electricity bill based on appliance usage. Add multiple appliances and calculate total energy consumption.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7167735201258720"
+     crossorigin="anonymous"></script>
+
+  <script type="module" crossorigin src="/tipdora/assets/electricity-B_mI5GyE.js"></script>
+  <link rel="modulepreload" crossorigin href="/tipdora/assets/main-DliuGKoK.js">
+  <link rel="modulepreload" crossorigin href="/tipdora/assets/CalculatorResult-CG6xskSt.js">
+  <link rel="stylesheet" crossorigin href="/tipdora/assets/main-CUZzFVdK.css">
+</head>
+
+<body class="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-white transition-colors duration-300">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+
+            <nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+                <a href="/" class="hover:text-brand-600 transition">Home</a>
+                <span class="mx-2">/</span>
+                <a href="/calculators/index.html" class="hover:text-brand-600 transition">Calculators</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-900 dark:text-white font-medium">Bill Calculator</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-2">
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="p-3 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 text-yellow-600 dark:text-yellow-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                                </svg>
+                            </div>
+                            <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Electricity Bill
+                                Calculator</h1>
+                        </div>
+
+                        <div class="grid gap-6 mb-8">
+                            <div>
+                                <label for="power"
+                                    class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Power
+                                    Consumption (Watts)</label>
+                                <input type="number" id="power" class="input-field" placeholder="e.g. 100 for a Bulb"
+                                    required>
+                            </div>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="hours"
+                                        class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Hours
+                                        Used / Day</label>
+                                    <input type="number" id="hours" class="input-field" placeholder="e.g. 5" required>
+                                </div>
+                                <div>
+                                    <label for="rate"
+                                        class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Rate
+                                        per Unit ($/kWh)</label>
+                                    <input type="number" id="rate" class="input-field" placeholder="e.g. 0.15" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <button id="btn-calculate"
+                                class="btn-primary w-full sm:w-auto px-8 py-3 rounded-xl font-semibold text-base">
+                                Calculate Bill
+                            </button>
+                            <button id="btn-reset"
+                                class="px-6 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition w-full sm:w-auto">
+                                Reset
+                            </button>
+                        </div>
+
+                        <div id="result-container"
+                            class="hidden p-6 rounded-2xl bg-brand-50 dark:bg-brand-900/10 border border-brand-100 dark:border-brand-900/20 text-center transition-all">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="space-y-6">
+                    <div
+                        class="card p-4 h-64 flex items-center justify-center bg-slate-50 dark:bg-slate-800 border-dashed border-2 border-slate-200 dark:border-slate-700">
+                        <span class="text-slate-400 font-medium">Ad Space</span>
+                    </div>
+                </aside>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>

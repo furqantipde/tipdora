@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - 3-in-1 Percent Tool | Tipdora.fun</title>
+    <meta name="description"
+        content="Calculate percentages easily. Find X% of Y, what percent is X of Y, and percentage increase/decrease.">
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7167735201258720"
+     crossorigin="anonymous"></script>
+
+  <script type="module" crossorigin src="/tipdora/assets/percentage-Lpu_Bss6.js"></script>
+  <link rel="modulepreload" crossorigin href="/tipdora/assets/main-DliuGKoK.js">
+  <link rel="stylesheet" crossorigin href="/tipdora/assets/main-CUZzFVdK.css">
+</head>
+
+<body class="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-white transition-colors duration-300">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+
+            <nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+                <a href="/" class="hover:text-brand-600 transition">Home</a>
+                <span class="mx-2">/</span>
+                <a href="/calculators/index.html" class="hover:text-brand-600 transition">Calculators</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-900 dark:text-white font-medium">Percentage Calculator</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-2 space-y-8">
+
+                    <!-- Tool 1 -->
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <span
+                                class="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center text-sm">1</span>
+                            Find Percentage of a Number
+                        </h2>
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <span class="text-slate-500">What is</span>
+                            <input type="number" id="p1-x" class="input-field w-24 text-center" placeholder="%">
+                            <span class="text-slate-500">% of</span>
+                            <input type="number" id="p1-y" class="input-field w-24 text-center" placeholder="Num">
+                            <button id="p1-btn" class="btn-primary py-2 px-6 rounded-lg text-sm">Calculate</button>
+                        </div>
+                        <div id="p1-result"
+                            class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-center font-bold text-xl hidden">
+                        </div>
+                    </div>
+
+                    <!-- Tool 2 -->
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <span
+                                class="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center text-sm">2</span>
+                            What Percent is X of Y?
+                        </h2>
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <input type="number" id="p2-x" class="input-field w-24 text-center" placeholder="Num 1">
+                            <span class="text-slate-500">is what % of</span>
+                            <input type="number" id="p2-y" class="input-field w-24 text-center" placeholder="Num 2">
+                            <button id="p2-btn" class="btn-primary py-2 px-6 rounded-lg text-sm">Calculate</button>
+                        </div>
+                        <div id="p2-result"
+                            class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-center font-bold text-xl hidden">
+                        </div>
+                    </div>
+
+                    <!-- Tool 3 -->
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                            <span
+                                class="w-8 h-8 rounded bg-blue-100 dark:bg-blue-900/30 text-blue-600 flex items-center justify-center text-sm">3</span>
+                            Percentage Increase / Decrease
+                        </h2>
+                        <div class="flex flex-col sm:flex-row items-center gap-4">
+                            <span class="text-slate-500">From</span>
+                            <input type="number" id="p3-x" class="input-field w-24 text-center" placeholder="Start">
+                            <span class="text-slate-500">to</span>
+                            <input type="number" id="p3-y" class="input-field w-24 text-center" placeholder="End">
+                            <button id="p3-btn" class="btn-primary py-2 px-6 rounded-lg text-sm">Calculate</button>
+                        </div>
+                        <div id="p3-result"
+                            class="mt-4 p-4 rounded-xl bg-slate-50 dark:bg-slate-800 text-center font-bold text-xl hidden">
+                        </div>
+                    </div>
+
+                </div>
+
+                <aside class="space-y-6">
+                    <div
+                        class="card p-4 h-64 flex items-center justify-center bg-slate-50 dark:bg-slate-800 border-dashed border-2 border-slate-200 dark:border-slate-700">
+                        <span class="text-slate-400 font-medium">Ad Space</span>
+                    </div>
+                </aside>
+
+            </div>
+
+        </main>
+    </div>
+
+</body>
+
+</html>
