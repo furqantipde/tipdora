@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Percentage Calculator - 3-in-1 Online Percent Tool | Tipdora.fun</title>
+    <meta name="description"
+        content="Free Percentage Calculator. Solve 3 types of problems: Find percentages, calculate percentage difference, and determine what percent one number is of another.">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <h1 class="text-3xl font-bold mb-8 text-brand-600 text-center">Percentage Calculator</h1>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Calculator Column -->
+                <div class="md:col-span-2 space-y-6">
+
+                    <!-- Tool 1: What is X% of Y -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 border-b pb-2">1. Find Percentage of a Number
+                        </h3>
+                        <div class="flex flex-col sm:flex-row items-center gap-2">
+                            <span>What is</span>
+                            <input type="number" id="p1-num-x"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="%">
+                            <span>% of</span>
+                            <input type="number" id="p1-num-y"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="Num">
+                            <button id="p1-btn"
+                                class="text-white bg-brand-600 hover:bg-brand-700 font-medium rounded-lg text-sm px-4 py-2">Calc</button>
+                        </div>
+                        <div class="mt-4 text-center p-3 bg-brand-50 rounded">
+                            Answer: <span id="p1-result" class="text-xl font-bold text-gray-900">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Tool 2: X is what % of Y -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 border-b pb-2">2. What Percent is X of Y?</h3>
+                        <div class="flex flex-col sm:flex-row items-center gap-2">
+                            <input type="number" id="p2-num-x"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="Num 1">
+                            <span>is what % of</span>
+                            <input type="number" id="p2-num-y"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="Num 2">
+                            <button id="p2-btn"
+                                class="text-white bg-brand-600 hover:bg-brand-700 font-medium rounded-lg text-sm px-4 py-2">Calc</button>
+                        </div>
+                        <div class="mt-4 text-center p-3 bg-brand-50 rounded">
+                            Answer: <span id="p2-result" class="text-xl font-bold text-gray-900">-</span>
+                        </div>
+                    </div>
+
+                    <!-- Tool 3: Perecentage Change -->
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="text-lg font-bold mb-4 text-gray-900 border-b pb-2">3. Percentage Increase / Decrease
+                        </h3>
+                        <div class="flex flex-col sm:flex-row items-center gap-2">
+                            <span>From</span>
+                            <input type="number" id="p3-from"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="Start">
+                            <span>to</span>
+                            <input type="number" id="p3-to"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg p-2 w-24"
+                                placeholder="End">
+                            <button id="p3-btn"
+                                class="text-white bg-brand-600 hover:bg-brand-700 font-medium rounded-lg text-sm px-4 py-2">Calc</button>
+                        </div>
+                        <div class="mt-4 text-center p-3 bg-brand-50 rounded">
+                            Answer: <span id="p3-result" class="text-xl font-bold text-gray-900">-</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Sidebar -->
+                <div class="md:col-span-1 space-y-6">
+                    <div
+                        class="bg-white p-4 rounded-lg shadow-md border border-gray-200 h-64 flex items-center justify-center">
+                        <p class="text-gray-400">Ad Space</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-md border border-gray-200">
+                        <h3 class="font-bold mb-2">Common Percentages</h3>
+                        <ul class="text-sm space-y-1 text-gray-600">
+                            <li>10% = Divide by 10</li>
+                            <li>20% = Divide by 5</li>
+                            <li>25% = Divide by 4</li>
+                            <li>50% = Divide by 2</li>
+                            <li>75% = Multiply by 0.75</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <article class="mt-12 bg-white p-8 rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-2xl font-bold mb-4">Percentage Formula Guide</h2>
+                <div class="prose max-w-none text-gray-600">
+                    <p class="mb-4">
+                        <strong>Percentage</strong> means "per 100". It is a number or ratio expressed as a fraction of
+                        100.
+                    </p>
+
+                    <h3 class="text-xl font-bold mb-2">Basic Formula</h3>
+                    <p class="mb-4">
+                        (Value / Total Value) × 100 = Percentage
+                    </p>
+                    <h3 class="text-xl font-bold mb-2">Real World Examples</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li><strong>Sales Tax:</strong> If tax is 10% and you buy something for $50, you pay $5 in tax
+                            ($50 * 0.10).</li>
+                        <li><strong>Discounts:</strong> 25% off $100 means you save $25.</li>
+                        <li><strong>Tips:</strong> Leaving a 20% tip on a $40 meal is $8.</li>
+                    </ul>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/calculators/percentage.js"></script>
+</body>
+
+</html>

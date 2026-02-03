@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GPA Calculator - Calculate College & High School GPA | Tipdora.fun</title>
+    <meta name="description"
+        content="Free GPA Calculator. Calculate your Semester Grade Point Average easily. Scale 4.0 supported. Add unlimited courses and credits.">
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                    <div class="bg-white p-6 rounded-lg shadow-md border border-gray-200">
+                        <h1 class="text-3xl font-bold mb-6 text-brand-600">GPA Calculator</h1>
+
+                        <div class="grid grid-cols-3 gap-2 mb-2 font-semibold text-gray-700 text-sm">
+                            <div>Course Name</div>
+                            <div>Credits</div>
+                            <div>Grade</div>
+                        </div>
+
+                        <div id="course-list">
+                            <!-- Rows injected by JS -->
+                        </div>
+
+                        <button id="btn-add-course"
+                            class="mt-2 text-brand-600 hover:text-brand-700 text-sm font-medium flex items-center">
+                            + Add another course
+                        </button>
+
+                        <div class="flex gap-4 my-6">
+                            <button id="btn-calculate"
+                                class="text-white bg-brand-600 hover:bg-brand-700 focus:ring-4 focus:outline-none focus:ring-brand-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                Calculate GPA
+                            </button>
+                            <button id="btn-reset"
+                                class="text-gray-900 bg-white border border-gray-300 focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center">
+                                Reset
+                            </button>
+                        </div>
+
+                        <div
+                            class="p-6 bg-brand-50 rounded-lg border border-brand-100 flex items-center justify-between">
+                            <span class="text-lg font-semibold text-brand-700">Your GPA:</span>
+                            <span id="result-gpa" class="text-5xl font-extrabold text-brand-700">-</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="md:col-span-1">
+                    <div
+                        class="bg-white p-4 rounded-lg shadow-md border border-gray-200 h-full flex items-center justify-center min-h-[300px]">
+                        <p class="text-gray-400">Ad Space</p>
+                    </div>
+                </div>
+            </div>
+
+            <article class="mt-12 bg-white p-8 rounded-lg shadow-md border border-gray-200">
+                <h2 class="text-2xl font-bold mb-4">How GPA is Calculated</h2>
+                <div class="prose max-w-none text-gray-600">
+                    <p class="mb-4">
+                        <strong>Formula:</strong> Total Grade Points / Total Credits
+                    </p>
+                    <p class="mb-4">
+                        Each grade is assigned a number value (e.g., A = 4.0, B = 3.0). This point value is multiplied
+                        by the credits for that course.
+                    </p>
+                    <h3 class="text-xl font-bold mb-2">Example</h3>
+                    <ul class="list-disc pl-5 mb-4">
+                        <li>Math (3 Credits): Got A (4.0) -> 3 * 4.0 = 12 Points</li>
+                        <li>History (2 Credits): Got B (3.0) -> 2 * 3.0 = 6 Points</li>
+                        <li><strong>Total:</strong> 18 Points / 5 Credits = <strong>3.6 GPA</strong></li>
+                    </ul>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/calculators/gpa.js"></script>
+</body>
+
+</html>

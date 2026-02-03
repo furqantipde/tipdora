@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Intake Calculator - How Much Water Should You Drink? | Tipdora.fun</title>
+    <meta name="description"
+        content="Calculate your recommended daily water intake based on your weight and activity level. Stay hydrated and healthy.">
+</head>
+
+<body class="bg-[#f8fafc] dark:bg-[#0f172a] text-slate-900 dark:text-white transition-colors duration-300">
+
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8 max-w-6xl">
+
+            <nav class="flex mb-6 text-sm text-slate-500 dark:text-slate-400">
+                <a href="/" class="hover:text-brand-600 transition">Home</a>
+                <span class="mx-2">/</span>
+                <a href="/calculators/index.html" class="hover:text-brand-600 transition">Calculators</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-900 dark:text-white font-medium">Water Intake</span>
+            </nav>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+                <div class="lg:col-span-2">
+                    <div class="card p-6 md:p-8 animate-on-scroll">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div
+                                class="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M20 12c0-1.103-.897-2-2-2s-2 .897-2 2 .897 2 2 2 2-.897 2-2zM4 12c0-1.103.897-2 2-2s2 .897 2 2-.897 2-2 2-2-.897-2-2zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <h1 class="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">Water Intake
+                                Calculator</h1>
+                        </div>
+
+                        <div class="grid gap-6 mb-8">
+                            <div>
+                                <label for="weight"
+                                    class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Weight
+                                    (kg)</label>
+                                <input type="number" id="weight" class="input-field" placeholder="e.g. 70" required>
+                            </div>
+                            <div>
+                                <label for="activity"
+                                    class="block mb-2 text-sm font-semibold text-slate-700 dark:text-slate-300">Daily
+                                    Exercise (Minutes)</label>
+                                <input type="number" id="activity" class="input-field" placeholder="e.g. 30">
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                            <button id="btn-calculate"
+                                class="btn-primary w-full sm:w-auto px-8 py-3 rounded-xl font-semibold text-base">
+                                Calculate Intake
+                            </button>
+                            <button id="btn-reset"
+                                class="px-6 py-3 rounded-xl font-medium text-slate-700 dark:text-slate-300 bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition w-full sm:w-auto">
+                                Reset
+                            </button>
+                        </div>
+
+                        <div id="result-container"
+                            class="hidden p-6 rounded-2xl bg-brand-50 dark:bg-brand-900/10 border border-brand-100 dark:border-brand-900/20 text-center transition-all">
+                            <!-- Injected by JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <aside class="space-y-6">
+                    <div
+                        class="card p-4 h-64 flex items-center justify-center bg-slate-50 dark:bg-slate-800 border-dashed border-2 border-slate-200 dark:border-slate-700">
+                        <span class="text-slate-400 font-medium">Ad Space</span>
+                    </div>
+                </aside>
+
+            </div>
+
+        </main>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/calculators/water.js"></script>
+</body>
+
+</html>

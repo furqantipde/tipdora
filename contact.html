@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Tipdora.fun</title>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+    <div id="app" class="flex flex-col min-h-screen">
+        <main class="flex-grow container mx-auto px-4 py-8">
+            <div class="max-w-3xl mx-auto bg-white p-8 rounded-lg shadow-md border border-gray-200">
+                <h1 class="text-3xl font-bold mb-6 text-brand-600">Contact Us</h1>
+                <p class="mb-6 text-gray-600">Have a question, suggestion, or found a bug? We'd love to hear from you.
+                </p>
+
+                <form class="space-y-4">
+                    <div>
+                        <label for="email" class="block mb-2 text-sm font-medium text-gray-900">Your Email</label>
+                        <input type="email" id="email"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block w-full p-2.5"
+                            placeholder="name@example.com" required>
+                    </div>
+                    <div>
+                        <label for="subject" class="block mb-2 text-sm font-medium text-gray-900">Subject</label>
+                        <input type="text" id="subject"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-brand-500 focus:border-brand-500 block w-full p-2.5"
+                            placeholder="Let us know how we can help" required>
+                    </div>
+                    <div>
+                        <label for="message" class="block mb-2 text-sm font-medium text-gray-900">Your Message</label>
+                        <textarea id="message" rows="4"
+                            class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-brand-500 focus:border-brand-500"
+                            placeholder="Your message..."></textarea>
+                    </div>
+                    <button type="submit"
+                        class="text-white bg-brand-600 hover:bg-brand-700 focus:ring-4 focus:ring-brand-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none">Send
+                        Message</button>
+                </form>
+
+                <div class="mt-8 pt-8 border-t border-gray-200">
+                    <p class="text-gray-600">You can also email us directly at: <a href="mailto:support@tipdora.fun"
+                            class="text-brand-600 hover:underline">support@tipdora.fun</a></p>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+</body>
+
+</html>
