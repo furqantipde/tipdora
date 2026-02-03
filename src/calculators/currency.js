@@ -1,5 +1,5 @@
 
-import { renderResult } from '../../components/CalculatorResult.js';
+import { renderResult } from '../components/CalculatorResult.js';
 
 // Mock Rates (In reality this would be an API call)
 const rates = {

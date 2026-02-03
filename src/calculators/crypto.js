@@ -1,5 +1,5 @@
 
-import { renderResult } from '../../components/CalculatorResult.js';
+import { renderResult } from '../components/CalculatorResult.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     const investmentInput = document.getElementById('investment');
