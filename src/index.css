@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@layer utilities {
+  /* Sophisticated Dark custom scrollbars */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #080808;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(212, 175, 55, 0.25);
+    border-radius: 9999px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(212, 175, 55, 0.5);
+  }
+}
+
+@keyframes pieceDropSpring {
+  0% { transform: scale(0.8) translateY(-8px); opacity: 0.9; }
+  50% { transform: scale(1.12) translateY(2px); }
+  75% { transform: scale(0.96) translateY(-1px); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes boardShake {
+  0% { transform: translate(0, 0) rotate(0deg); }
+  20% { transform: translate(-2px, 1px) rotate(-0.2deg); }
+  40% { transform: translate(2px, -1px) rotate(0.2deg); }
+  60% { transform: translate(-1px, 1px) rotate(-0.1deg); }
+  80% { transform: translate(1px, 0) rotate(0.1deg); }
+  100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+@keyframes particleBurst {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--tw-translate-x, 20px), var(--tw-translate-y, -20px)) scale(0); opacity: 0; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-[#pieceDropSpring] {
+  animation: pieceDropSpring 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-board-shake {
+  animation: boardShake 0.3s ease-in-out;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s ease-out forwards;
+}
+
+body {
+  background-color: #080808;
+  color: #e0e0e0;
+  overflow-x: hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+

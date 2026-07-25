@@ -1,0 +1,6 @@
+{
+  "name": "Tipde Chess",
+  "description": "Tipde Chess created by M. Furqan - Ultra-realistic tactical chess engine with AI grandmasters, rich move physics, post-game analysis, and opening database.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
